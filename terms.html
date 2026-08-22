@@ -3,17 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conditions d'utilisation - SmartCollect</title>
+    <title>Conditions d'Utilisation - SmartCollect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px auto; max-width: 800px; padding: 0 20px; color: #333; }
-        h1 { color: #2c3e50; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --accent: #3b82f6;
+            --bg-dark: #0f172a;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--bg-dark);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .legal-header {
+            max-width: 900px;
+            margin: 3.5rem auto 1.5rem;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.4rem 1rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .legal-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bg-dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .legal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+
+        .legal-section {
+            margin-bottom: 2.2rem;
+        }
+
+        .legal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.2rem;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .legal-section p {
+            color: #334155;
+            font-size: 1rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .legal-section ul {
+            padding-left: 1.4rem;
+            color: #334155;
+            margin-bottom: 0.9rem;
+        }
+
+        .legal-section li {
+            margin-bottom: 0.45rem;
+        }
+
+        footer {
+            background: white;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .legal-header h1 { font-size: 2rem; }
+            .legal-card { padding: 1.75rem 1.25rem; }
+            .nav-container, .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Conditions d'utilisation</h1>
-    <p>Dernière mise à jour : 2026</p>
-    <p>En utilisant l'application SmartCollect, vous acceptez les présentes conditions d'utilisation.</p>
-    <p>L'application est fournie en l'état, pour vous assister dans la gestion de vos données et de vos flux de travail. Vous restez responsable des données que vous manipulez et stockez via l'application.</p>
-    <p>Pour toute réclamation ou assistance, veuillez contacter le développeur à alhoussenyba05@gmail.com</p>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SC</div>
+                SmartCollect
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="privacy.html">Confidentialité</a></li>
+                <li><a href="terms.html" class="active">Conditions d'Utilisation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="legal-header">
+            <div class="badge">⚖️ Accord Légal</div>
+            <h1>Conditions Générales d'Utilisation</h1>
+            <p>Dernière mise à jour : 22 Août 2026</p>
+        </div>
+
+        <div class="content-container">
+            <div class="legal-card">
+                
+                <section class="legal-section">
+                    <h2>1. Acceptation des conditions</h2>
+                    <p>En téléchargeant, installant ou utilisant l'application <strong>SmartCollect</strong>, vous acceptez d'être lié par les présentes Conditions Générales d'Utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.</p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>2. Utilisation de l'application</h2>
+                    <p>SmartCollect est un outil de productivité destiné à la collecte, l'organisation et la gestion de données tabulaires. Vous vous engagez à :</p>
+                    <ul>
+                        <li>Utiliser l'application conformément aux lois et réglementations en vigueur.</li>
+                        <li>Ne pas utiliser l'application pour collecter ou traiter des données illicites, frauduleuses ou malveillantes.</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>3. Responsabilité des données & Sauvegardes</h2>
+                    <p>L'application fonctionne selon un modèle de stockage local sur votre terminal :</p>
+                    <ul>
+                        <li>Vous êtes l'unique propriétaire et responsable des données saisies dans vos tableaux.</li>
+                        <li>Il vous appartient de mettre en place des sauvegardes régulières (export JSON local ou synchronisation Google Drive) pour prévenir toute perte accidentelle due à une réinitialisation de votre appareil.</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>4. Services tiers</h2>
+                    <p>L'application permet la synchronisation optionnelle avec le service Google Drive. L'utilisation de Google Drive est régie par les conditions d'utilisation propres à Google LLC.</p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>5. Propriété intellectuelle</h2>
+                    <p>Tous les droits de propriété intellectuelle afférents à l'application SmartCollect, à son code source, son logo et son interface restent la propriété exclusive de ses concepteurs.</p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>6. Contact</h2>
+                    <p>Pour toute question ou réclamation concernant ces conditions d'utilisation, veuillez contacter :</p>
+                    <p><strong>Email :</strong> support@smartcollect.online</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2026 SmartCollect. Tous droits réservés.</p>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                <li><a href="terms.html">Conditions d'Utilisation</a></li>
+            </ul>
+        </div>
+    </footer>
+
 </body>
 </html>
