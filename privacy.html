@@ -3,17 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de confidentialité - SmartCollect</title>
+    <title>Politique de Confidentialité - SmartCollect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px auto; max-width: 800px; padding: 0 20px; color: #333; }
-        h1 { color: #2c3e50; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --accent: #3b82f6;
+            --bg-dark: #0f172a;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--bg-dark);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .legal-header {
+            max-width: 900px;
+            margin: 3.5rem auto 1.5rem;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.4rem 1rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .legal-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bg-dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .legal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+
+        .legal-section {
+            margin-bottom: 2.2rem;
+        }
+
+        .legal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.2rem;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .legal-section p {
+            color: #334155;
+            font-size: 1rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .legal-section ul {
+            padding-left: 1.4rem;
+            color: #334155;
+            margin-bottom: 0.9rem;
+        }
+
+        .legal-section li {
+            margin-bottom: 0.45rem;
+        }
+
+        .highlight-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.2rem 0;
+        }
+
+        .highlight-box p {
+            color: #1e3a8a;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        footer {
+            background: white;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .legal-header h1 { font-size: 2rem; }
+            .legal-card { padding: 1.75rem 1.25rem; }
+            .nav-container, .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Politique de confidentialité</h1>
-    <p>Dernière mise à jour : 2026</p>
-    <p>SmartCollect accorde une importance particulière à la protection de vos données personnelles. Cette application a pour objectif de faciliter la gestion et la collecte sécurisée de vos données, notamment via une intégration avec Google Drive.</p>
-    <p>Nous ne collectons aucune donnée personnelle sensible à votre insu. Les accès demandés à vos services Google servent uniquement au fonctionnement interne de l'application (sauvegarde et synchronisation de vos propres fichiers).</p>
-    <p>Pour toute question concernant cette politique, vous pouvez nous contacter à l'adresse suivante : alhoussenyba05@gmail.com</p>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SC</div>
+                SmartCollect
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="privacy.html" class="active">Confidentialité</a></li>
+                <li><a href="terms.html">Conditions d'Utilisation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="legal-header">
+            <div class="badge">🔒 Protection & Vie Privée</div>
+            <h1>Politique de Confidentialité</h1>
+            <p>Dernière mise à jour : 22 Août 2026</p>
+        </div>
+
+        <div class="content-container">
+            <div class="legal-card">
+                
+                <section class="legal-section">
+                    <h2>1. Vue d'ensemble</h2>
+                    <p>L'application <strong>SmartCollect</strong> est conçue pour respecter rigoureusement la vie privée de ses utilisateurs. Elle fonctionne selon un modèle d'architecture locale où l'utilisateur conserve la maîtrise totale et exclusive de ses données.</p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>2. Données collectées et Stockage local</h2>
+                    <p>SmartCollect ne collecte, ne transmet et ne vend aucune donnée personnelle à des serveurs tiers ou publicitaires.</p>
+                    <ul>
+                        <li><strong>Tableaux et données saisies :</strong> Toutes les informations créées dans l'application sont enregistrées localement sur votre appareil.</li>
+                        <li><strong>Préférences :</strong> Les réglages d'affichage et de configuration sont conservés sur votre terminal.</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>3. Intégration de l'API Google Drive</h2>
+                    <p>SmartCollect propose une fonctionnalité optionnelle de sauvegarde sur le cloud via l'API Google Drive. En activant cette fonction :</p>
+                    <ul>
+                        <li>L'application demande l'accès strictement nécessaire pour enregistrer et récupérer vos fichiers de sauvegarde dans votre propre espace de stockage Google Drive.</li>
+                        <li><strong>Aucun accès à vos autres fichiers :</strong> SmartCollect n'accède pas à vos documents ou fichiers personnels existants.</li>
+                        <li><strong>Aucun transit sur serveur tiers :</strong> La transmission des fichiers de sauvegarde se fait directement entre votre téléphone et les serveurs sécurisés de Google.</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>Conformité aux règles Google :</strong> L'utilisation et le transfert par SmartCollect des informations reçues des API Google vers toute autre application respectent scrupuleusement la Politique relative aux données utilisateur des services API Google (Google API Services User Data Policy).</p>
+                    </div>
+                </section>
+
+                <section class="legal-section">
+                    <h2>4. Autorisations de l'appareil</h2>
+                    <p>Pour fonctionner correctement, l'application peut solliciter les autorisations suivantes :</p>
+                    <ul>
+                        <li><strong>Stockage / Fichiers :</strong> Nécessaire uniquement pour exporter ou importer des fichiers de sauvegarde au format JSON sur votre appareil.</li>
+                        <li><strong>Accès Internet :</strong> Requis exclusivement pour communiquer directement avec Google Drive lors des sauvegardes ou restaurations demandées.</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>5. Sécurité de vos données</h2>
+                    <p>Vos sauvegardes sont traitées localement et protégées par les mécanismes de sécurité de votre système d'exploitation et de votre compte Google.</p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>6. Contact</h2>
+                    <p>Pour toute question relative à cette politique de confidentialité ou à l'utilisation de l'application, vous pouvez nous contacter à l'adresse suivante :</p>
+                    <p><strong>Email :</strong> support@smartcollect.online</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2026 SmartCollect. Tous droits réservés.</p>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                <li><a href="terms.html">Conditions d'Utilisation</a></li>
+            </ul>
+        </div>
+    </footer>
+
 </body>
 </html>
