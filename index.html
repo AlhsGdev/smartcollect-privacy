@@ -95,18 +95,6 @@
             color: var(--primary);
         }
 
-        /* ✅ Nouveau : lien suppression de compte dans le nav */
-        .nav-links a.nav-danger {
-            color: var(--danger);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav-links a.nav-danger:hover {
-            color: #991b1b;
-        }
-
         .hero {
             max-width: 1100px;
             margin: 0 auto;
@@ -188,20 +176,6 @@
 
         .btn-secondary:hover {
             background: #f1f5f9;
-        }
-
-        /* ✅ Nouveau : style bouton suppression */
-        .btn-danger {
-            background: var(--danger-light);
-            color: var(--danger);
-            border: 1px solid rgba(220, 38, 38, 0.25);
-        }
-
-        .btn-danger:hover {
-            background: var(--danger);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
         }
 
         .content-section {
@@ -289,53 +263,13 @@
             font-size: 0.95rem;
         }
 
-        /* ✅ Nouveau : section encadrée de suppression de compte */
-        .delete-account-section {
-            max-width: 1100px;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
+        .card.card-danger .card-icon {
+            background: var(--danger-light);
+            color: var(--danger);
         }
 
-        .delete-banner {
-            background: white;
-            border: 1px solid rgba(220, 38, 38, 0.2);
-            border-left: 4px solid var(--danger);
-            border-radius: 12px;
-            padding: 1.5rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.05);
-        }
-
-        .delete-banner-text h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--bg-dark);
-            margin-bottom: 0.3rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .delete-banner-text p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .delete-banner {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-            }
-            .delete-banner .btn {
-                width: 100%;
-                justify-content: center;
-            }
+        .card.card-danger:hover {
+            border-color: rgba(220, 38, 38, 0.3);
         }
 
         footer {
@@ -374,16 +308,6 @@
             color: var(--primary);
         }
 
-        /* ✅ Nouveau : lien danger dans le footer */
-        .footer-links a.footer-danger {
-            color: var(--danger);
-        }
-
-        .footer-links a.footer-danger:hover {
-            color: #991b1b;
-            text-decoration: underline;
-        }
-
         .copyright {
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -396,9 +320,9 @@
                 gap: 1rem;
             }
             .nav-links {
-                gap: 1rem;
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 1rem;
             }
         }
     </style>
@@ -414,13 +338,9 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="privacy.html">Confidentialité</a></li>
-                <li><a href="terms.html">Conditions</a></li>
-                <!-- ✅ NOUVEAU : Lien vers suppression de compte -->
-                <li>
-                    <a href="delete-account.html" class="nav-danger">
-                        🗑 Suppression de compte
-                    </a>
-                </li>
+                <li><a href="terms.html">Conditions d'Utilisation</a></li>
+                <!-- ✅ NOUVEAU LIEN -->
+                <li><a href="suppression-compte.html">Suppression de Compte</a></li>
             </ul>
         </div>
     </nav>
@@ -433,10 +353,6 @@
             <div class="cta-group">
                 <a href="privacy.html" class="btn btn-primary">Politique de Confidentialité</a>
                 <a href="terms.html" class="btn btn-secondary">Conditions d'Utilisation</a>
-                <!-- ✅ NOUVEAU : Bouton suppression de compte -->
-                <a href="delete-account.html" class="btn btn-danger">
-                    🗑 Supprimer mon compte
-                </a>
             </div>
         </section>
 
@@ -463,23 +379,15 @@
                     <h3>Stockage Local Sécurisé</h3>
                     <p>Toutes vos données restent sur votre appareil. Smart Collect ne partage ni ne vend aucune information à des tiers.</p>
                 </div>
-            </section>
-        </div>
 
-        <!-- ✅ NOUVEAU : Bannière de suppression de compte -->
-        <div class="delete-account-section">
-            <div class="delete-banner">
-                <div class="delete-banner-text">
-                    <h3>🗑 Suppression de compte</h3>
-                    <p>
-                        Vous souhaitez supprimer votre compte Smart Collect et toutes les données associées ?
-                        Consultez notre page dédiée pour connaître la procédure.
-                    </p>
+                <!-- ✅ NOUVELLE CARTE -->
+                <div class="card card-danger">
+                    <div class="card-icon">🗑️</div>
+                    <h3>Suppression de Compte</h3>
+                    <p>Vous pouvez demander à tout moment la suppression de votre compte Smart Collect et de toutes les données associées.</p>
+                    <a href="suppression-compte.html" class="btn btn-secondary" style="margin-top: 1rem;">Demander la suppression →</a>
                 </div>
-                <a href="delete-account.html" class="btn btn-danger">
-                    Voir la procédure →
-                </a>
-            </div>
+            </section>
         </div>
     </main>
 
@@ -489,8 +397,8 @@
             <ul class="footer-links">
                 <li><a href="privacy.html">Politique de Confidentialité</a></li>
                 <li><a href="terms.html">Conditions d'Utilisation</a></li>
-                <!-- ✅ NOUVEAU : Lien suppression dans le footer -->
-                <li><a href="delete-account.html" class="footer-danger">Suppression de compte</a></li>
+                <!-- ✅ NOUVEAU LIEN FOOTER -->
+                <li><a href="suppression-compte.html">Suppression de Compte</a></li>
             </ul>
         </div>
     </footer>
